@@ -4,6 +4,7 @@ import Home from './pages/Home';
 import Projects from './pages/Projects';
 import ProjectDetail from './pages/ProjectDetail';
 import AISkills from './pages/AISkills';
+import AISkillDetail from './pages/AISkillDetail';
 import About from './pages/About';
 
 const Navbar: React.FC = () => {
@@ -203,6 +204,7 @@ const App: React.FC = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/project/:id" element={<ProjectDetail />} />
           <Route path="/ai" element={<AISkills />} />
+          <Route path="/ai-detail/:id" element={<AISkillDetail />} />
           <Route path="/about" element={<About />} />
         </Routes>
       </main>
