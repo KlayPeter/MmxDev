@@ -2,6 +2,118 @@
 import React from 'react';
 import Card from '../components/Card';
 
+const contactItems = [
+  {
+    label: 'GitHub',
+    value: 'KlayPeter',
+    href: 'https://github.com/KlayPeter',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    icon: (
+      <svg
+        className="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="6" cy="6" r="2" />
+        <circle cx="6" cy="18" r="2" />
+        <circle cx="18" cy="12" r="2" />
+        <path d="M8 7v2a4 4 0 004 4h2" />
+        <path d="M8 17v-2.5" />
+        <path d="M14 12h4" />
+      </svg>
+    ),
+  },
+  {
+    label: '电话',
+    value: '13025593963',
+    href: 'tel:13025593963',
+    icon: (
+      <svg
+        className="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M6.6 3.5 9 3a1 1 0 011 .7l.6 3a1 1 0 01-.3.9l-1.5 1.5a10.5 10.5 0 005.8 5.8l1.5-1.5a1 1 0 01.9-.3l3 .6a1 1 0 01.7 1l-.5 2.5a1 1 0 01-1 .8A16.5 16.5 0 013.3 5a1 1 0 01.8-1Z" />
+      </svg>
+    ),
+  },
+  {
+    label: '邮箱',
+    value: 'kt_mmxyy2377@qq.com',
+    href: 'mailto:kt_mmxyy2377@qq.com',
+    icon: (
+      <svg
+        className="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <rect x="3" y="5" width="18" height="14" rx="2" />
+        <path d="M3 7l9 6 9-6" />
+      </svg>
+    ),
+  },
+  {
+    label: '博客',
+    value: 'klaypeter.github.io',
+    href: 'https://klaypeter.github.io/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    icon: (
+      <svg
+        className="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3.6 9h16.8" />
+        <path d="M3.6 15h16.8" />
+        <path d="M12 3c2.5 3.5 2.5 14.5 0 18" />
+        <path d="M12 3c-2.5 3.5-2.5 14.5 0 18" />
+      </svg>
+    ),
+  },
+  {
+    label: '笔记',
+    value: 'learning-share',
+    href: 'https://klaypeter.github.io/learning-share/',
+    target: '_blank',
+    rel: 'noopener noreferrer',
+    icon: (
+      <svg
+        className="w-5 h-5"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        strokeWidth="1.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      >
+        <path d="M7 5h10a2 2 0 012 2v11a1 1 0 01-1 1H8.5A2.5 2.5 0 016 16.5V7.5A2.5 2.5 0 018.5 5H9" />
+        <path d="M9 9h8" />
+        <path d="M9 13h6" />
+        <path d="M7 5v13" />
+      </svg>
+    ),
+  },
+];
+
 const About: React.FC = () => {
   return (
     <div className="max-w-4xl mx-auto px-6 py-12">
@@ -48,6 +160,45 @@ const About: React.FC = () => {
           </div>
         </div>
       </div>
+
+      <section className="mb-20">
+        <Card hoverable={false} className="bg-white/80 border border-slate-100 shadow-sm">
+          <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-6">
+            <div>
+              <p className="text-xs font-black uppercase tracking-[0.3em] text-sky-500 mb-2">Contact</p>
+              <h3 className="text-2xl font-bold text-slate-900">与我取得联系</h3>
+              <p className="text-slate-500 text-sm mt-2">同一视觉语言的联系入口，支持电话、邮箱、社交与博客。</p>
+            </div>
+            <div className="flex items-center gap-2 text-xs text-slate-400">
+              <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span>
+              随时欢迎交流
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {contactItems.map((item) => (
+              <a
+                key={item.label}
+                href={item.href}
+                target={item.target}
+                rel={item.rel}
+                className="group flex items-center justify-between gap-3 rounded-xl border border-slate-100 bg-white/70 px-4 py-3 hover:border-sky-200 hover:bg-sky-50/80 hover:shadow-[0_12px_30px_-12px_rgba(8,47,73,0.25)] transition-all"
+              >
+                <div className="flex items-center gap-3">
+                  <span className="w-11 h-11 rounded-2xl bg-sky-50 text-sky-600 flex items-center justify-center shadow-inner">
+                    {item.icon}
+                  </span>
+                  <div className="leading-tight">
+                    <div className="text-[11px] font-bold uppercase tracking-widest text-slate-400">{item.label}</div>
+                    <div className="text-slate-800 font-semibold">{item.value}</div>
+                  </div>
+                </div>
+                <span className="text-sky-500 text-xs font-semibold opacity-0 group-hover:opacity-100 transition-opacity">前往 →</span>
+              </a>
+            ))}
+          </div>
+        </Card>
+      </section>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-20">
         <Card hoverable={false} className="bg-sky-50 border-none shadow-none">
